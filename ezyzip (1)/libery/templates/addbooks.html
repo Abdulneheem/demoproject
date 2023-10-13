@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .x {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+{% endblock %}
+
+
+
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="mb-3">
+  <label for="formFile" class="form-label">Title</label>
+  <input class="form-control" type="text" id="formFile" name="T">
+</div>
+<div class="mb-3">
+  <label for="formFileMultiple" class="form-label">author</label>
+  <input class="form-control" type="text" id="formFileMultiple2"  name="A">
+</div>
+<div class="mb-3">
+  <label for="formFileMultiple" class="form-label">pdf</label>
+  <input class="form-control" type="file" id="formFileMultiple1"  name="o">
+</div>
+<div class="mb-3">
+  <label for="formFileMultiple" class="form-label">image</label>
+  <input class="form-control" type="file" id="formFileMultiple"  name="i">
+</div>
+<div class="mb-3">
+  <label for="formFileDisabled" class="form-label">Price</label>
+  <input class="form-control" type="text" id="formFileDisabled" name="P">
+
+  <input type="submit" value="Submit">
+</div>
+</form>
+
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+<div class="mb-3">
+  <label for="formFile" class="form-label">name</label>
+  <input class="form-control" type="text" id="formFile" name="T">
+</div>
+<div class="mb-3">
+  <label for="formFileMultiple" class="form-label">address</label>
+  <input class="form-control" type="text" id="formFileMultiple"  name="A">
+</div>
+<div class="mb-3">
+  <label for="formFileDisabled" class="form-label">Place</label>
+  <input class="form-control" type="text" id="formFileDisabled" name="P">
+
+  <input type="submit" value="Submit">
+</div>
+</form>
+
+{% endblock %}

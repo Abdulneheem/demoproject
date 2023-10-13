@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+
+{% block style %}
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <h1>Register Book</h1>
+        <form method="POST" enctype="multipart/form-data">
+             {% csrf_token %}
+            <label for="title">User Name</label>
+            <input type="text" id="title" name="u" required>
+
+            <label class="isbn">Password</label>
+            <input type="password" class="author" name="p" required>
+            <br>
+            <label for="isbn">Password</label>
+            <input type="password" class="author" name="p1" required>
+            <br>
+            <label for="isbn">First Name</label>
+            <input type="text" id="isbn" name="f" required>
+            <br>
+            <label for="quantity">Last Name</label>
+            <input type="number" id="quantity" name="l" required>
+
+            <label for="quantity">Email</label>
+            <input type="text" id="email" name="c" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+{% endblock %}
+
+
+
+
+
+

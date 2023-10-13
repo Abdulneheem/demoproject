@@ -1,0 +1,100 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+{% endblock %}
+
+{% block background %} url({% static 'image/bookshelf.jpg' %});
+    background-size: cover; {% endblock %}"
+
+{% block content %}
+    <div class="container">
+        <h1>View Books</h1>
+        <table>
+            <thead>
+
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>image</th>
+                    <th>PDF</th>
+                    <th>view</th>
+                    <th>edit</th>
+                    <th>delets</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in books %}
+                <tr>
+
+                    <td>{{i.title}}</td>
+                    <td>{{i.author}}</td>
+                    <td>{{i.price}}</td>
+                    <td><a href ="{{i.pdf.url}}">download</a></td>
+                    <td><img src ="{{i.image.url}}" style="width:50px;height:50px;">image</td>
+                    <td><a class="btn btn-danger" href="{% url 'books:viewbook' i.id %}">View</a></td>
+                    <td><a class="btn btn-danger" href="{% url 'books:delete' i.id %}">delete</a></td>
+                    <td><a class="btn btn-danger" href="{% url 'books:editbook'  i.id %}">update</a></td>
+                </tr>
+            {% endfor %}
+              </tbody>
+        </table>
+        {% for i in books %}
+        BOOK lIST
+        <ul type="disc">
+           <li>title:{{i.title}}</li>
+           <li>author:{{i.author}}</li>
+           <li>price:{{i.price}}</li>
+            <li><a href ="{{i.pdf.url}}">download</a></li>
+            <li><img src ="{{i.image.url}}" style="width:50px;height:50px;">image</li>
+
+       </ul>
+        {% endfor %}
+                <!-- Add more rows for additional books -->
+
+    </div>
+{% endblock %}
+
